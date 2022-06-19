@@ -1,0 +1,9 @@
+{
+ "testEnvironment": "jsdom",
+ "setupFilesAfterEnv": ["<rootDir>/test/setup.ts"],
+ "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}"],
+ "testMatch": ["<rootDir>/**/*.test.(js|jsx|ts|tsx)"],
+ "transform": {
+  "^.+\\.tsx?$": "ts-jest"
+ }
+}
