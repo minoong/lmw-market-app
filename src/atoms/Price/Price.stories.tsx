@@ -13,4 +13,15 @@ const Template: ComponentStory<typeof Price> = (args) => <Price {...args} />
 export const Primary = Template.bind({})
 Primary.args = {
  price: 10000000,
+ options: {
+  symbol: 'ko-KR',
+  currency: 'KRW',
+ },
+ change: 'EVEN',
+ color: {
+  RISE: '#c84a31',
+  EVEN: '#333',
+  FALL: '#1261c4',
+  DEFAULT: '#333',
+ },
 }
