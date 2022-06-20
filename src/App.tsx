@@ -1,35 +1,18 @@
 import React, { useState } from 'react'
+import { useObservableState } from 'observable-hooks'
 import logo from './logo.svg'
 import './App.css'
 import Button from './atoms/Button'
+import { upbitWithLmw$ } from './features/upbit'
 
 function App() {
- const [count, setCount] = useState(0)
+ const deck = useObservableState(upbitWithLmw$, [])
 
  return (
   <div className="App">
-   <header className="App-header">
-    <img src={logo} className="App-logo" alt="logo" />
-    <p>Hello Vite + React!</p>
-    <Button label="sdf" primary />
-    <p>
-     <button type="button" onClick={() => setCount((count) => count + 1)}>
-      count is: {count}
-     </button>
-    </p>
-    <p>
-     Edit <code>App.tsx</code> and save to test HMR updates.
-    </p>
-    <p>
-     <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-      Learn React
-     </a>
-     {' | '}
-     <a className="App-link" href="https://vitejs.dev/guide/features.html" target="_blank" rel="noopener noreferrer">
-      Vite Docs
-     </a>
-    </p>
-   </header>
+   {deck.map((coin) => (
+    <div key={coin.english_name}>{coin.korean_name}</div>
+   ))}
   </div>
  )
 }
