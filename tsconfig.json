@@ -9,6 +9,7 @@
   "allowSyntheticDefaultImports": true,
   "strict": true,
   "forceConsistentCasingInFileNames": true,
+  "types": ["jest"],
   "module": "ESNext",
   "moduleResolution": "Node",
   "resolveJsonModule": true,
@@ -18,5 +19,6 @@
   "jsx": "react-jsx"
  },
  "include": ["src"],
+ "exclude": ["*.test.ts"],
  "references": [{ "path": "./tsconfig.node.json" }]
 }

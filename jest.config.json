@@ -1,0 +1,14 @@
+{
+ "preset": "ts-jest",
+ "transform": {
+  "^.+\\.ts$": "ts-jest"
+ },
+ "testEnvironment": "node",
+ "testRegex": "\\.test\\.ts$",
+ "moduleFileExtensions": ["ts", "tsx", "js", "json"],
+ "globals": {
+  "ts-jest": {
+   "tsconfig": "tsconfig.json"
+  }
+ }
+}
