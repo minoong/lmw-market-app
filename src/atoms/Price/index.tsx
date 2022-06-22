@@ -1,5 +1,5 @@
-import styled from '@emotion/styled'
 import React from 'react'
+import styled from '@emotion/styled'
 
 type StyleProps = {
  RISE: '#c84a31' | string

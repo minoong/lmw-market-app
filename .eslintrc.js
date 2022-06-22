@@ -20,7 +20,7 @@ module.exports = {
   ecmaVersion: 'latest',
   sourceType: 'module',
  },
- plugins: ['react', '@typescript-eslint'],
+ plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
  rules: {
   'linebreak-style': 0,
   'import/no-dynamic-require': 0,
@@ -45,6 +45,35 @@ module.exports = {
   'react/function-component-definition': 0,
   'react/no-unescaped-entities': 0,
  },
+ overrides: [
+  // override "simple-import-sort" config
+  {
+   files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+   rules: {
+    'simple-import-sort/imports': [
+     'error',
+     {
+      groups: [
+       // Packages `react` related packages come first.
+       ['^react', '^@?\\w'],
+       // Internal packages.
+       ['^(@|components)(/.*|$)'],
+       ['^(@|hooks)(/.*|$)'],
+       ['^(@|utils)(/.*|$)'],
+       // Side effect imports.
+       ['^\\u0000'],
+       // Parent imports. Put `..` last.
+       ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+       // Other relative imports. Put same-folder imports and `.` last.
+       ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+       // Style imports.
+       ['^.+\\.?(css)$'],
+      ],
+     },
+    ],
+   },
+  },
+ ],
  settings: {
   'import/parsers': {
    '@typescript-eslint/parser': ['.ts', '.tsx'],

@@ -1,38 +1,31 @@
-/* eslint-disable camelcase */
-import React, { useState } from 'react'
-import { useObservableState } from 'observable-hooks'
-import logo from './logo.svg'
+import React from 'react'
+import { Outlet, Route, Routes } from 'react-router-dom'
+import { Typography } from '@mui/material'
+
+import ResponsiveAppBar from './molecules/Gnb'
+import Market from './pages/Market'
+import Wallet from './pages/Wallet'
+
 import './App.css'
-import Button from './atoms/Button'
-import { upbitWithLmw$ } from './features/upbit'
-import Price from './atoms/Price'
+
+function Layout() {
+ return (
+  <Typography component="main" sx={{ height: '100vh' }}>
+   <ResponsiveAppBar />
+   <Outlet />
+  </Typography>
+ )
+}
 
 function App() {
- const deck = useObservableState(upbitWithLmw$, [])
-
  return (
   <div className="App">
-   {deck.map(
-    ({
-     english_name,
-     korean_name,
-     trade_price,
-     signed_change_rate,
-     signed_change_price,
-     acc_trade_price_24h,
-     change,
-    }) => (
-     <div key={english_name}>
-      {korean_name}
-      <Price price={trade_price} options={{ currency: 'KRW', symbol: 'ko-KR' }} change={change} />
-      <div>
-       <div>{(signed_change_rate * 100).toFixed(2)}%</div>
-       <div>{signed_change_price.toLocaleString()}</div>
-      </div>
-      <div>{acc_trade_price_24h}</div>
-     </div>
-    ),
-   )}
+   <Routes>
+    <Route path="/" element={<Layout />}>
+     <Route path="market" element={<Market />} />
+     <Route path="wallet" element={<Wallet />} />
+    </Route>
+   </Routes>
   </div>
  )
 }
