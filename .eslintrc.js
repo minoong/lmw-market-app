@@ -20,7 +20,7 @@ module.exports = {
   ecmaVersion: 'latest',
   sourceType: 'module',
  },
- plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
+ plugins: ['react', '@typescript-eslint', 'simple-import-sort', 'react-hooks'],
  rules: {
   'linebreak-style': 0,
   'import/no-dynamic-require': 0,
@@ -40,10 +40,11 @@ module.exports = {
   'react/prop-types': 0,
   'no-empty-pattern': 0,
   'no-alert': 0,
-  'react-hooks/exhaustive-deps': 0,
   'react/require-default-props': 0,
   'react/function-component-definition': 0,
   'react/no-unescaped-entities': 0,
+  'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+  'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
  },
  overrides: [
   // override "simple-import-sort" config
