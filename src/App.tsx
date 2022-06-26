@@ -3,6 +3,7 @@ import { Outlet, Route, Routes } from 'react-router-dom'
 import { Typography } from '@mui/material'
 
 import ResponsiveAppBar from './molecules/Gnb'
+import Modal from './molecules/Modal'
 import Market from './pages/Market'
 import Wallet from './pages/Wallet'
 
@@ -26,6 +27,7 @@ function App() {
      <Route path="wallet" element={<Wallet />} />
     </Route>
    </Routes>
+   <Modal />
   </div>
  )
 }
