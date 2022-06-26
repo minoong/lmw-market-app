@@ -1,5 +1,4 @@
 import React from 'react'
-import { text } from '@storybook/addon-knobs'
 import { ComponentMeta } from '@storybook/react'
 
 import Img from '.'
@@ -13,14 +12,14 @@ export const Index = () => (
  <div style={{ padding: '1rem', backgroundColor: 'gray' }}>
   <div style={{ width: '100%' }}>
    <Img
-    alt={text('alt', 'main banner img')}
+    alt={['alt', 'main banner img'].join('')}
     src="https://via.placeholder.com/250"
     lazy={{ placeholder: 'https://via.placeholder.com/150' }}
    />
   </div>
   <div style={{ width: '100%' }}>
    <Img
-    alt={text('alt', 'main banner img')}
+    alt={['alt', 'main banner img'].join('')}
     src="https://via.placeholder.com/350"
     lazy={{ placeholder: 'https://via.placeholder.com/150' }}
    />
